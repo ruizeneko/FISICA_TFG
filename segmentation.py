@@ -177,24 +177,6 @@ def segmentation_map_image(img_name):
     return image
 
 
-# helper function to visualize several segmentation maps on a single image
-def visualize_several_maps(img_name):
-    """
-    Function to visualize several segmentation maps.
-    INPUT:
-        image_id - filename of the image
-    """
-    # draw segmentation maps and labels on image
-    image = segmentation_map_image(img_name)
-
-    labels = get_labels(img_name)
-
-    fig, ax = plt.subplots(figsize=(15, 7))
-    ax.axis('off')
-    plt.title('Segmentation maps: ' + labels)
-    ax.imshow(image)
-
-
 def multiple_seg_map(width=2, height=3):
     # get a list of images from training set
     images = sorted(glob(PROJECT_PATH + "train_images/" + '*.jpg'))
@@ -221,7 +203,7 @@ def multiple_seg_map(width=2, height=3):
         axs[i, j].set_title(labels)
 
     # set subtitle
-    plt.suptitle('Maps and represented clouds')
+    plt.suptitle('Segmentation Maps')
     plt.show()
 
 

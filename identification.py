@@ -81,7 +81,7 @@ def counter_img(img_name):
     return im_rgb
 
 
-def various_counter_img(height=3, width=3):
+def various_counter_img(height=2, width=3):
     np.random.seed(50)
 
     fig, axs = plt.subplots(height, width, figsize=(20, 20))
@@ -103,5 +103,5 @@ def various_counter_img(height=3, width=3):
         axs[i, j].set_title(sgt.get_labels(img_name))
 
     # set subtitle
-    plt.suptitle('Maps and represented clouds')
+    plt.suptitle('Cloud identification')
     plt.show()
