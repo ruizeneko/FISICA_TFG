@@ -12,5 +12,5 @@ However, it could be executed in our own computer too (as long as we have both e
 
 Installing the Conda environment is extremly important, because some packages (segmentation_models for instance) do not work with all version of TensorFlow. Next, we will have to load the data from Kaggle : https://www.kaggle.com/c/understanding_cloud_organization/data. Please, unzip the data in the same folder of these code and do not change any name, neither of folder nor of .csv files.
 
-###How-to-use
+### How-to-use
 If you want to execute the code, you just have to run the train.py files (after unzipping the data). It will shown the segmentations maps and boxes of some randomly picked images and will start the training proccess. After it, it will create the .csv from the test set and show some randomly picked images and their masks. However, please, unless you have a GPU, use the Kaggle notebook from above. If you have a Google account, then you have a Kaggle's one too.
