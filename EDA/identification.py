@@ -1,5 +1,3 @@
-"""i"""
-
 import numpy as np
 import cv2 as cv
 from EDA import segmentation as sgt
@@ -15,9 +13,6 @@ code = {'red': (0, 0, 255), 'blue': (255, 0, 0), 'green': (0, 255, 0), 'yellow':
 
 
 def get_min(array):
-    """
-    sss
-    """
     min_y = 10e4
     pos_y = 0
 
@@ -41,16 +36,10 @@ def get_min(array):
 
 
 def get_true_index(img_name):
-    """
-    ddd
-    """
     return corrected_df[corrected_df['Image'].str.contains(img_name)].index.tolist()
 
 
 def get_rle_label(img_name, shapes):
-    """
-    sss
-    """
     cleaned_df = corrected_df.iloc[get_true_index(img_name)].drop(['Image'], axis=1).fillna(-1)
     img_map = dict()
     for ind in cleaned_df.index:
@@ -62,9 +51,6 @@ def get_rle_label(img_name, shapes):
 
 
 def contour_label_img(img_name, img, tag):
-    """
-    sss
-    """
     color = code[colors[tag]]
     cnt = get_rle_label(img_name, img.shape[0:2])[tag]
 
@@ -76,9 +62,6 @@ def contour_label_img(img_name, img, tag):
 
 
 def counter_img(img_name):
-    """
-    aaa
-    """
     img = cv.imread(PROJECT_PATH + '\\train_images\\' + img_name, -1)
     cnt = get_rle_label(img_name, img.shape[0:2])
 
@@ -91,9 +74,6 @@ def counter_img(img_name):
 
 
 def various_counter_img(height=2, width=2):
-    """
-    aaa
-    """
     np.random.seed(50)
 
     fig, axs = plt.subplots(height, width, figsize=(20, 20))

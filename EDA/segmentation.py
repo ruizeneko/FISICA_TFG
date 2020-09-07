@@ -1,5 +1,3 @@
-"""sss"""
-
 # import basic libraries
 from glob import glob
 
@@ -22,9 +20,6 @@ PROJECT_PATH = Constants.PROJECT_PATH
 
 
 def get_labels(img_name):
-    """
-    SSS
-    """
     corrected_df_aux = corrected_df.dropna().reset_index(drop=True)
     image_labels_index = corrected_df_aux['Image'].index[corrected_df_aux['Image'] == img_name].tolist()
     return ', '.join(corrected_df_aux['Label'][image_labels_index])
@@ -66,26 +61,17 @@ def plot_training_images(project_path, width=3, height=3):
 
 
 def map_label(img_name):
-    """
-    sss
-    """
     index = corrected_df['Image'].index[corrected_df['Image'] == img_name].tolist()
     return corrected_df.iloc[index]
 
 
 def get_map_label(img_name, label):
-    """
-    sss
-    """
     label_map = map_label(img_name)['Label']
     index = label_map.index[label_map == label].tolist()
     return corrected_df['EncodedPixels'][index].fillna('-1').tolist()
 
 
 def get_mask_filename(img_name, label, shape=(2100, 1400)):
-    """
-    sss
-    """
     # convert rle to mask
     rle = get_map_label(img_name, label)[0]
 
@@ -110,9 +96,6 @@ def draw_labels(image, np_mask, label):
 
 
 def segmentation_map_image(img_name):
-    """
-    sss
-    """
     # open the image
     image = np.asarray(Image.open(PROJECT_PATH + "\\train_images\\" + img_name))
 
@@ -141,9 +124,6 @@ def segmentation_map_image(img_name):
 
 
 def multiple_seg_map(width=2, height=2):
-    """
-    sss
-    """
     # get a list of image_list from training set
     fig, axs = plt.subplots(height, width, figsize=(20, 20))
     number_images_shown = height * width
