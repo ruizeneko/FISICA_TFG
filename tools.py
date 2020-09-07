@@ -67,9 +67,6 @@ def get_resize_image(img_name, shape, test_train):
 
 
 def decode_rle(mask_rle, shape=(1400, 2100)):
-    """
-    Converts
-    """
     s = mask_rle.split()
     starts, lengths = [np.asarray(x, dtype=int) for x in (s[0:][::2], s[1:][::2])]
     starts -= 1
@@ -191,9 +188,6 @@ def dice_coef(y_true, y_pred, smooth=1):
 
 # Model evaluation
 def plot_metrics(history, metric_list=None):
-    """
-    aaa
-    """
     if metric_list is None:
         metric_list = ['loss', 'dice_coef']
     fig, axes = plt.subplots(len(metric_list), sharex='col', figsize=(22, len(metric_list) * 4))
@@ -212,9 +206,6 @@ def plot_metrics(history, metric_list=None):
 
 # Model post process
 def post_process(probability, threshold=0.5, min_size=10000):
-    """
-    aaa
-    """
     mask = cv.threshold(probability, threshold, 1, cv.THRESH_BINARY)[1]
     num_component, component = cv.connectedComponents(mask.astype(np.uint8))
     predictions = np.zeros(probability.shape, np.float32)
@@ -229,9 +220,7 @@ def post_process(probability, threshold=0.5, min_size=10000):
 
 def get_metrics(model, target_df, df, df_images_dest_path, thresholds, min_mask_sizes, N_CLASSES=4,
                 preprocessing=None, set_name='Complete set'):
-    """
-    aaa
-    """
+
     class_names = ['Fish', 'Flower', 'Gravel', 'Sugar']
     metrics = []
 
@@ -292,9 +281,6 @@ def get_metrics(model, target_df, df, df_images_dest_path, thresholds, min_mask_
 
 def inspect_predictions(df, image_ids, images_dest_path, pred_col=None, label_col='EncodedPixels',
                         title_col='Image_Label', img_shape=(525, 350), figsize=(22, 6)):
-    """
-    aaa
-    """
     if pred_col:
         for sample in image_ids:
             sample_df = df[df['image'] == sample]
@@ -347,9 +333,6 @@ def mask2rle(img):
 
 
 def build_rles(masks, reshape=None):
-    """
-    aaa
-    """
     width, height, depth = masks.shape
     rles = []
 
