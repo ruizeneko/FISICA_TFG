@@ -5,9 +5,6 @@ import tools
 
 
 class DataGenerator(tensorflow.keras.utils.Sequence):
-    """
-    aaa
-    """
     def __init__(self, dataframe, directory, batch_size, n_channels, target_size, n_classes,
                  mode='fit', target_df=None, shuffle=True, preprocessing=None, augmentation=None, seed=0):
 
@@ -51,9 +48,6 @@ class DataGenerator(tensorflow.keras.utils.Sequence):
             return X
 
     def on_epoch_end(self):
-        """
-        aaa
-        """
         self.indexes = np.arange(len(self.list_IDs))
         if self.shuffle:
             np.random.shuffle(self.indexes)
