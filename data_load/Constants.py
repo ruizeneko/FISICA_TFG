@@ -40,11 +40,6 @@ def array2string(array):
 one_hot_image_dict = dict(zip(image_list, image_labels_one_hot))
 values = np.array([sum(image_labels_one_hot[:, i]) for i in range(len(labels))])
 
-# plt.bar(np.arange(4), height=values)
-# plt.xticks(np.arange(4), labels)
-# plt.title("Number of appearances of each pattern in train dataset")
-# plt.show()
-
 hist_labels = {}
 for i in range(len(image_labels_one_hot)):
     one_hot2labels = converter(image_labels_one_hot[i])
@@ -54,10 +49,6 @@ for i in range(len(image_labels_one_hot)):
     else:
         hist_labels[string_labels] += 1
 
-# plt.bar(np.arange(len(hist_labels)), height=list(hist_labels.values()))
-# plt.xticks(np.arange(len(hist_labels)), list(hist_labels.keys()), rotation=90)
-# plt.title("Number of different pattern combinations in train dataset")
-# plt.show()
 
 number_labels_image = np.array([sum(image_labels_one_hot[i]) for i in range(len(image_labels_one_hot))])
 hist_number_labels = {}
@@ -69,11 +60,6 @@ for i in range(len(number_labels_image)):
         hist_number_labels[str(number_labels_image[i])] += 1
 
 hist_number_labels = dict(sorted(hist_number_labels.items()))
-# plt.bar(np.arange(len(hist_number_labels)), height=list(hist_number_labels.values()))
-# plt.xticks(np.arange(len(hist_number_labels)), list(hist_number_labels.keys()))
-# plt.title("Number of labeled examples in each image in train dataset")
-# plt.show()
-
 
 # We get all rle based on image name
 def extract_rle(filename):
